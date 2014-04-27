@@ -1,0 +1,36 @@
+<h1>My Wikis</h1>
+<div class="row">
+  <div class="col-md-4">
+    <h2>Wiki Rules</h2>
+    <ul>
+      <li>Anyone can create a wiki which can be viewed by anyone with a user account</li>
+      <li>The Body of a wiki section can be written in Markdown to better format your content</li>
+      <li>View a cheatsheet on how to write <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.</li>
+      <li>Be sure to include a Tile and Short Description of your wiki</li>
+    </ul>
+    <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-block' %>
+  </div>
+  <div class="col-md-7 col-md-offset-1">
+    <div class="row">
+      <h3>Hello <%= current_user.name %>, these are your current wikis!</h3>
+      <div class="pull-right breather">
+        <%= link_to "Edit your Profile", edit_user_registration_path, class: 'btn btn-default btn-xs' %>
+      </div>
+    </div>
+    <hr/>
+    <div class="row breather">
+      <% @wikis.each do |wiki| %> 
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to wiki.title, wiki %>
+            </h4>
+            <%= wiki.description %>
+          </div>
+        </div>
+        <hr/>
+      <% end %> 
+      <%= will_paginate @wikis, renderer: BootstrapPagination::Rails %> 
+    </div>
+  </div>
+</div>

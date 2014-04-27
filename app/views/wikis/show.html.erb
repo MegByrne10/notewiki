@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-10">
+    <h1><%= @wiki.title %></h1>
+    <hr/>
+    <div class="breather">
+      <h4><%= @wiki.description %></h4>
+      <%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: "btn btn-info btn-sm" %>
+      <%= link_to "Back", :back, class: 'btn btn-primary btn-sm' %>
+    </div>
+    <hr/>
+  </div>
+</div>
+<div class="row breather">
+  <div class= "col-md-10">
+    <%= markdown @wiki.body %>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">  
+  <div class="col-md-5">
+    <h1>New Wiki</h1>
+    <p>The body of this wiki can be written in Markdown, which allows you to format your text and display things like images from the web as well as link to other sites.<br/> For instructions on how to use Markdown, <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">go here</a>.</p>
+    <%= link_to "Back", :back, class: 'btn btn-primary btn-sm' %>
+  </div>
+</div>
+<div class="row breather">
+  <div class="col-md-5">
+    <%= form_for [wiki] do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :title %>
+        <div class="controls">
+          <%= f.text_field :title, autofocus: :true, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <div class="controls">
+          <%= f.text_area :description, rows: '2', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :body %>
+        <div class="controls">
+          <%= f.text_area :body, rows: '15', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div><%= f.submit "Save", class: 'btn btn-primary' %></div>
+      
+    <% end %>
+  </div>
+</div>

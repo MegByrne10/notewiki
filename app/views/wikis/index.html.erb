@@ -1,0 +1,30 @@
+<h1>Public Wikis</h1>
+<div class="row">
+  <div class="col-md-4">
+    <h2>Wiki Rules</h2>
+    <ul>
+      <li>Anyone can create a wiki which can be publicly viewed.</li>
+      <li>To create private wikis which can only be viewed by people you specify, sign up for a premium account.</li>
+      <li>Wiki content can be written in <strong>Markdown</strong> to better convey your message.</li>
+      <li>View a cheatsheet on how to write with <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.</li>
+      <li>Be sure to include a <strong>Title</strong> and <strong>Short Description</strong> of your wiki</li>
+    </ul>
+    <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-block' %>
+  </div>
+  <div class="col-md-7 col-md-offset-1">
+    <div class="row breather">
+      <% @wikis.each do |wiki| %> 
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to wiki.title, wiki %>
+            </h4>
+            <%= wiki.description %>
+          </div>
+        </div>
+        <hr/>
+      <% end %> 
+      <%= will_paginate @wikis, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.breather {
+  margin-top: 15px;
+}
+
+.breather-lg {
+margin-top: 5em;
+}
+
+.jumbotron {
+  border-style: ridge;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 6px;  
+}
+
+.shadow {
+  -webkit-box-shadow: 6px 6px 5px #666;
+  -moz-box-shadow: 6px 6px 5px #666;
+  box-shadow: 6px 6px 5px #666;
+}
+
+.shadow-sm {
+  -webkit-box-shadow: 3px 3px 2px #666;
+  -moz-box-shadow: 3px 3px 2px #666;
+  box-shadow: 3px 3px 2px #666;
+}
