@@ -1,34 +1,46 @@
 <div class="row breather">
-  <h2>Sign in</h2>
-  <div class="col-md-4 col-md-offset-1 breather">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %> 
+  <div class="col-md-6">
+    <h2>Sign in</h2>
+    <div class="col-md-8 col-md-offset-1 breather">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %> 
 
-      <div class="form-group">
-        <%= f.label :email %>
-        <div class="controls">
-          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <div class="controls">
+            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+          </div>
         </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <div class="controls">
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="checkbox">
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+
+        <div><%= f.submit "Sign in", class: 'btn btn-info' %></div>
+      <% end %>
+      <div class="breather">
+        <%= render "devise/shared/links" %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :password %>
-        <div class="controls">
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-        </div>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
-        <div class="checkbox">
-          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-        </div>
-      <% end -%>
-
-      <div><%= f.submit "Sign in", class: 'btn btn-info' %></div>
-    <% end %>
-    <div class="breather">
-      <%= render "devise/shared/links" %>
+      <%= link_to "<< Back", :back, class: 'btn btn-default btn-xs breather' %>
     </div>
-    <%= link_to "<< Back", :back, class: 'btn btn-default btn-xs breather' %>
+  </div>
+  <div class="col-md-6">
+    <h2>Want to Create Private Wikis?</h2>
+    <div class="col-md-8 col-md-offset-1 breather">
+      <p>Sign up for the Premium Member plan and you will be able to create as many private wikis as you want, as well as specify the poeple you would like to view and collaborate on your wiki with you.  The premium member plan is a simple and easy resource for sharing and collaborating on projects with a team, or to share with friends and family.</p>
+      <h4 class="text-center">For only $10<br/>start your premium membership today!</h4>
+      <div class="breather">
+        <%= link_to "Premium Membership", new_charge_path, class: 'btn btn-info btn-block' %>
+      </div>
+    </div>
   </div>
 </div>

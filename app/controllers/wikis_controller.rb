@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @wikis = Wiki.paginate(page: params[:page], per_page: 10)

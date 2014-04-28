@@ -1,0 +1,21 @@
+<div class="row breather">
+  <div class="col-md-6">
+    <h2>Notewiki Lifetime Premium Membership</h2>
+
+    <p>For just $10 you can create private wikis and collaborate with as many people as you like!  This subscription never needs to be renewed as long as you keep your membership.  Enjoy sharing markdown wikis with your friends, family, and colleagues!</p>
+    <div class="col-md-8 col-md-offset-1 breather">
+      <%= form_tag charges_path do %>
+        <article>
+          <label class="amount">
+            <span>Amount: $10.00</span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="A month's subscription"
+                data-amount="1000"></script>
+      <% end %>
+    </div>
+  </div>
+</div>
