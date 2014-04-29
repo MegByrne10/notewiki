@@ -23,6 +23,12 @@
         </div>
       </div>
 
+      <% if user.subscribed? %>
+        <div class="checkbox">
+          <%= f.check_box :private %> <%= f.label :private %>
+        </div>
+      <% end %>
+
       <div class="form-group">
         <%= f.label :body %>
         <div class="controls">

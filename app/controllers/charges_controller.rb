@@ -19,8 +19,8 @@ class ChargesController < ApplicationController
       currency: 'usd'
     )
 
-    # current_user.subscribed = true
-    # current_user.save!
+    current_user.subscribed = true
+    current_user.save!
 
     flash[:notice] = "Thank you for your purchase, #{current_user.name}.  Enjoy your Private Wiki subscription."
     redirect_to user_path(current_user)
