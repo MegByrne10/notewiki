@@ -46,3 +46,4 @@ gem 'will_paginate-bootstrap'
 gem 'stripe'
 gem 'figaro'
 gem 'pundit'
+gem "chosen-rails"

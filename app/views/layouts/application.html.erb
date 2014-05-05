@@ -36,12 +36,12 @@
             <%= flash[:notice] %>
           </div>
         <% elsif flash[:error] %>
-          <div class="alert alert-error alert-dismissable">
+          <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <%= flash[:error] %>
           </div>
         <% elsif flash[:alert] %>
-          <div class="alert alert-danger alert-dismissable">
+          <div class="alert alert-warning alert-dismissable">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <%= flash[:alert] %>
           </div>  

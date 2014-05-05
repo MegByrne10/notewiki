@@ -12,7 +12,12 @@
     <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary btn-block' %>
   </div>
   <div class="col-md-7 col-md-offset-1">
-    <div class="row breather">
+    <div class="row">
+      <%= form_tag(wikis_path, :method => "get") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Wikis" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+      <hr/>
       <% @wikis.each do |wiki| %> 
         <div class="media">
           <div class="media-body">
@@ -20,7 +25,9 @@
               <%= link_to wiki.title, wiki %>
             </h4>
             <%= wiki.description %>
+            <small class="pull-right">Last edited <%= time_ago_in_words(wiki.updated_at)%> ago<br/>by <%= wiki.user.name %></small>
           </div>
+
         </div>
         <hr/>
       <% end %> 

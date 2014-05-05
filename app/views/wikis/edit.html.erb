@@ -1,3 +1,11 @@
-<div class="row">
-  <%= render partial: 'form', locals: { wiki: @wiki } %>
+<div class="row">  
+  <div class="col-md-5">
+    <h1>Edit Wiki</h1>
+    <p>The body of this wiki can be written in Markdown, which allows you to format your text and display things like images from the web as well as link to other sites.<br/> For instructions on how to use Markdown, <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">go here</a>.</p>
+    <%= link_to "Back", :back, class: 'btn btn-primary btn-sm' %>
+  </div>
+
+  <div class="col-md-5 col-md-offset-1">
+    <%= render partial: 'form', locals: { wiki: @wiki } %>
+  </div>
 </div>

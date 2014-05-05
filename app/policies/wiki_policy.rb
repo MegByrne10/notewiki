@@ -1,10 +1,32 @@
 class WikiPolicy < ApplicationPolicy
+  class Scope < Struct.new(:user, :scope)
+    def resolve
+      scope.where(private: false)
+    end
+  end
+
   def index?
     true
   end
 
+  def new?
+    user.present?  
+  end
+
   def create?
-    user.present?    
+    if record.private
+      user.present? && user.subscribed
+    else
+      user.present? 
+    end
+  end
+
+  def edit?
+    if record.private
+      user.present? && user.subscribed && record.user == user
+    else
+      user.present? 
+    end
   end
 
   def update?
@@ -12,6 +34,6 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    record.private? == false || (record.private? && ( user.subcribed? && ( record.user_id == user.id ) ))    
+    edit?    
   end
 end
